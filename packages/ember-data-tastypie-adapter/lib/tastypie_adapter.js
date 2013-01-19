@@ -131,7 +131,8 @@ DS.DjangoTastypieAdapter = DS.RESTAdapter.extend({
   },
 
   didFindQuery: function(store, type, json, recordArray) {
-    recordArray.load(json.objects);
+    var data = store.loadMany(type, json.objects);
+    recordArray.load(data);
   },
 
   buildURL: function(record, suffix) {
